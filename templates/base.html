@@ -46,7 +46,7 @@
                             <a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
                         </li>
                         <li>
-                            <a href="#">New Book</a>
+                            <a href="{{ url_for('add_product') }}">New Book</a>
                         </li>
                         <li>
                             <a href="#">Manage Categories</a>
@@ -78,7 +78,7 @@
                     <a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
                 </li>
                 <li>
-                    <a href="#">New Book</a>
+                    <a href="{{ url_for('add_product') }}">New Book</a>
                 </li>
                 <li>
                     <a href="#">Manage Categories</a>
