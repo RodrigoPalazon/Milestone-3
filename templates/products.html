@@ -1,16 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h3 class="orange-text text-darken-4 center-align">All Books</h3>
+
     <ul class="collapsible">
         {% for product in products %}
         <li>
             <div class="collapsible-header white-text orange darken-4 text-shadow">
-                <i class="fas fa-caret-down"></i>
-                <strong> {{ product.product_name }} </strong> : {{ product.release_date }}
-                {% if product.is_new == "on" %}
+                <div class="col s3">
+                    <i class="fas fa-caret-down"></i>
+                    <a href="" class="btn-small green accent-4">Done</a>
+                    <a href="" class="btn-small light-blue lighten-1">Edit</a>
+                </div>
+                <div class="col s9">
+                    <strong> {{ product.product_name }} </strong> : {{ product.release_date }}
+                    {% if product.is_new == "on" %}
                     <i class="fas fa-exclamation-circle green-text text-lighten-1 tooltipped"
                         data-position="right" data-tooltip="NEW BOOK!"></i>
-                {% endif %}
+                     {% endif %}
+                </div>
+                
             </div>
             <div class="collapsible-body">
                 <strong>{{ product.category_name }}</strong>
