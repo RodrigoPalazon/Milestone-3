@@ -121,8 +121,20 @@ def add_product():
 
 @app.route("/edit_product/<product_id>", methods=["GET", "POST"])
 def edit_product(product_id):
-    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+    if request.method == "POST":
+        is_new = "on" if request.form.get("is_new") else "off"
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "product_name": request.form.get("product_name"),
+            "product_description": request.form.get("product_description"),
+            "is_new": is_new,
+            "release_date": request.form.get("release_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.products.update({"_id": ObjectId(product_id)}, submit)
+        flash("Book Successfully Updated")
 
+    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_product.html", product=product, categories=categories)
 
