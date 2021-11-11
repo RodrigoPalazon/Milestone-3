@@ -114,9 +114,17 @@ def add_product():
         mongo.db.products.insert_one(product)
         flash("Book Successfully Added")
         return redirect(url_for("get_products"))
-        
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_product.html", categories=categories)
+
+
+@app.route("/edit_product/<product_id>", methods=["GET", "POST"])
+def edit_product(product_id):
+    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_product.html", product=product, categories=categories)
 
 
 if __name__ == "__main__":
