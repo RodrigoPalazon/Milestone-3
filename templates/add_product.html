@@ -1,10 +1,11 @@
 {% extends "base.html"%}
 {% block content %}
 
-    <h3 class="orange-text text-darken-4 center-align">Add Book</h3>
+    <h3 class="orange-text text-darken-4 center-align">All Books</h3>
 
     <div class="row card-panel grey lighten-5">
-         <form class="col s12" method="POST" action="">
+         <form class="col s12" method="POST" action="{{ url_for('add_product')}}">
+             <!-- category selection -->
              <div class="row">
                 <div class="input-field col s12">
               <i class="fas fa-folder-open prefix orange-text text-darken-4"></i>  
@@ -16,8 +17,8 @@
                     </select>
                   <label for="category_name">Book Category</label>
                 </div>
-
-          </div>
+            </div>
+            <!-- book name -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix orange-text text-darken-4"></i>
@@ -25,7 +26,8 @@
                           type="text" class="validate" required>
                     <label for="product_name">Book Name</label>
                 </div>
-            </div>  
+            </div> 
+             <!-- book description  -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
@@ -34,6 +36,7 @@
                     <label for="product_description">Book Description</label>
                 </div>
             </div>
+            <!-- release datepicker -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-calendar-alt prefix orange-text text-darken-4"></i>
@@ -41,6 +44,7 @@
                     <label for="product_name">Release Date</label>
                 </div>
             </div> 
+            <!-- id new toggle-->
             <div class="row">
                 <div class="input-field col s12">
                     <div class="switch">
@@ -51,6 +55,14 @@
                         Is New
                       </label>
                     </div>
+                </div>
+            </div>
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large orange darken-1 text-shadow">
+                        Add Book <i class="fas fa-plus-square right"></i>
+                    </button>
                 </div>
             </div>
         </form>

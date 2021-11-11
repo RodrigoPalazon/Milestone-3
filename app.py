@@ -99,8 +99,22 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_product")
+@app.route("/add_product", methods=["GET", "POST"])
 def add_product():
+    if request.method == "POST":
+        is_new = "on" if request.form.get("is_new") else "off"
+        product = {
+            "category_name": request.form.get("category_name"),
+            "product_name": request.form.get("product_name"),
+            "product_description": request.form.get("product_description"),
+            "is_new": is_new,
+            "release_date": request.form.get("release_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.products.insert_one(product)
+        flash("Book Successfully Added")
+        return redirect(url_for("get_products"))
+        
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_product.html", categories=categories)
 
