@@ -1,6 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% if session.user|lower != 'admin'|lower %}
+<div class="row container center-align">
+    <div class="col s12 card-panel orange lighten-2"> 
+    <p>
+        <strong>Love Books</strong> is a platform for people like us, that enjoy
+        reading, talking and understanding as maximum as possible about our favorites books.
+        Some of our main categories are Philosophy, Technology, Fiction, Science, Progarmming,
+        and much more, for people that are always interested in learning something new.
+    </p>
+    </div>
+    <div class="col s12">
+        <img class="responsive-img" src="static/images/library.jpg" alt="Library" >
+    </div>
+</div>
+{% endif %}
+
     <h3 class="orange-text text-darken-4 center-align">All Books</h3>
 
     <div class="row card-panel grey lighten-5">
