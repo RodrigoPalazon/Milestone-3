@@ -25,6 +25,13 @@ def get_products():
     return render_template("products.html", products=products)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    products = list(mongo.db.products.find({"$text": {"$search": query}}))
+    return render_template("products.html", products=products)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
