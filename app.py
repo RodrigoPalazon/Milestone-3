@@ -113,6 +113,7 @@ def add_product():
         product = {
             "category_name": request.form.get("category_name"),
             "product_name": request.form.get("product_name"),
+            "image_url": request.form.get("image_url"),
             "product_description": request.form.get("product_description"),
             "is_new": is_new,
             "release_date": request.form.get("release_date"),
