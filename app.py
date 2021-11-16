@@ -19,6 +19,12 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/home")
+def home():
+    return render_template("home.html")
+
+
+# @app.route("/")
 @app.route("/get_products")
 def get_products():
     products = list(mongo.db.products.find())
@@ -72,7 +78,7 @@ def login():
                     flash("Welcome, {}".format(
                         request.form.get("username")))
                     return redirect(url_for(
-                        "profile", username=session["user"]))
+                        "home"))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -114,6 +120,7 @@ def add_product():
             "category_name": request.form.get("category_name"),
             "product_name": request.form.get("product_name"),
             "image_url": request.form.get("image_url"),
+            "sales_store_url": request.form.get("sales_store_url"),
             "product_description": request.form.get("product_description"),
             "is_new": is_new,
             "release_date": request.form.get("release_date"),

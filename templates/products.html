@@ -1,47 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% if session.user|lower != 'admin'|lower %}
-<!-- Slideshow container -->
-<div class="col s12 card-panel orange lighten-2"> 
-    <p>
-        <strong>Love Books</strong> is a platform for people like us, that enjoy
-        reading, talking and understanding as maximum as possible about our favorites books.
-        Some of our main categories are Philosophy, Technology, Fiction, Science, Progarmming,
-        and much more, for people that are always interested in learning something new.
-    </p>
-</div>
-
-<div class="slideshow-container s12">
-
-    <!-- Full-width images with number and caption text -->
-    <div class="mySlides fade">
-        <img src="static/images/book1.jpg" style="width:100%">
-    </div>
-
-    <div class="mySlides fade">
-        <img src="static/images/book2.jpg" style="width:100%">
-    </div>
-
-    <div class="mySlides fade">
-        <img src="static/images/book3.jpg" style="width:100%">
-    </div>
-
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-<br>
-
-<!-- The dots/circles -->
-<div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-</div>
-{% endif %}
-
-
 
     <h3 class="orange-text text-darken-4 center-align">All Books</h3>
 
@@ -71,7 +30,7 @@
                 <div class="col s3">
                     <i class="fas fa-caret-down"></i>
                     <div class="col s6">
-                        <img src="{{product.image_url}}" class="img-responsive left" alt="Book's cover">
+                        
                         <strong> {{ product.product_name }} </strong> : {{ product.release_date }}
                         {% if product.is_new == "on" %}
                         <i class="fas fa-exclamation-circle green-text text-lighten-1 tooltipped"
@@ -79,7 +38,7 @@
                          {% endif %}
                     </div>
                     {% if session.user|lower == product.created_by|lower %}
-                        <a href="{{ url_for('delete_product', product_id=product._id) }}" class="btn-small green accent-4">Done</a>
+                        <a href="{{ url_for('delete_product', product_id=product._id) }}" class="btn-small red accent-4">Delete</a>
                         <a href="{{ url_for('edit_product', product_id=product._id) }}" class="btn-small light-blue lighten-1">Edit</a>
                     {% endif %}
                 </div>
@@ -89,6 +48,10 @@
             <div class="collapsible-body">
                 <strong>{{ product.category_name }}</strong>
                 <p>{{ product.product_description }}</p>
+                <img src="{{product.image_url}}" class="img-responsive" alt="Book's cover">
+                <a href="{{ product.sales_store_url }}" target="_blank" class="btn-floating tooltipped purchase-btn" data-position="bottom" data-tooltip="Purchase Link">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
                 <p><em>by: {{ product.created_by }}</em></p>
             </div>
         </li>
@@ -97,7 +60,7 @@
     {% else %}
         <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
     {% endif %}
-<!-- ******************************************************************   -->
+
 {% if session.user|lower != 'admin'|lower %}
 <div class="row container center-align">
    
