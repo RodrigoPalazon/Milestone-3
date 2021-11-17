@@ -31,7 +31,7 @@
         <!-- top navbar -->
         <nav class ="nav-extended text-shadow orange darken-3">
             <div class="nav-wrapper">
-                <a href="{{ url_for('get_products') }}" class="brand-logo">
+                <a href="{{ url_for('home') }}" class="brand-logo">
                     <i class="fas fa-book"></i>Love Books
                 </a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
@@ -43,7 +43,7 @@
                     </li>
                     {% if session.user %}
                         <li>
-                            <a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
+                            <a href="{{ url_for('profile', username=session['user']) }}">My Posts</a>
                         </li>
                         <li>
                             <a href="{{ url_for('get_products') }}">All Books</a>
@@ -80,7 +80,7 @@
             </li>
             {% if session.user %}
                 <li>
-                    <a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
+                    <a href="{{ url_for('profile', username=session['user']) }}">My Posts</a>
                 </li>
                 <li>
                     <a href="{{ url_for('get_products') }}">All Books</a>
@@ -149,17 +149,17 @@
                     <ul class="social-links">
                         <li> 
                             <a class="white-text" href="https://facebook.com/" target="_blank">
-                                <i class="fab fa-facebook"></i>
+                                <i class="fab fa-facebook small"></i>
                             </a>
                         </li>
                         <li>
                             <a class="white-text" href="https://twitter.com/" target="_blank">
-                                <i class="fab fa-twitter"></i>
+                                <i class="fab fa-twitter small"></i>
                             </a>
                         </li>
                         <li>
                             <a class="white-text" href="https://instagram.com/" target="_blank">
-                                <i class="fab fa-instagram"></i>
+                                <i class="fab fa-instagram small"></i>
                             </a>
                         </li>
                     </ul>
