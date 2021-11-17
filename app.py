@@ -28,7 +28,7 @@ def home():
 def get_products():
     products = list(mongo.db.products.find())
     return render_template("products.html", products=products)
-
+  
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
@@ -96,9 +96,9 @@ def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-
+    products = list(mongo.db.products.find())
     if session["user"]:    
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, products=products)
 
     return render_template("login")
 
