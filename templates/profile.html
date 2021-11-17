@@ -8,6 +8,18 @@
                     {{ username }}'s Profile
                 </h3>
             </div>
+             <!-- My Reviews Section -->
+    <blockquote>
+        <h5>My Reviews:</h5>
+    </blockquote>
+
+    <!-- Display Books from db -->
+    {% if products|length > 0 %}
+        <div class="row">
+            {% for product in products %}
+                            <p>Created by: {{ product.created_by }} </p>
+            {% endfor %}
+    {% endif %}
         </div>
     </div>
 
