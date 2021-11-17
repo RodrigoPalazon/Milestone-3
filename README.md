@@ -3,7 +3,7 @@
 
 [Visit my live website here!](https://milestone3-rodrigopalazon.herokuapp.com/)
 
-![Site preview](static/images/responsivity.jpg)
+[Site preview](static/images/responsivity.jpg)
 
 # Table Of Contents
 
