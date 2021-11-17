@@ -5,8 +5,6 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-if os.path.exists("env.py"):
-    import env
 
 
 app = Flask(__name__)
@@ -26,15 +24,15 @@ def home():
 
 @app.route("/get_products")
 def get_products():
-    products = list(mongo.db.products.find())
-    return render_template("products.html", products=products)
+    productsList = list(mongo.db.products.find())
+    return render_template("products.html", products=productsList)
   
 
-@app.route("/search", methods=["GET", "POST"])
+@app.route("/search", methods=["POST"])
 def search():
     query = request.form.get("query")
-    products = list(mongo.db.products.find({"$text": {"$search": query}}))
-    return render_template("products.html", products=products)
+    productsList = list(mongo.db.products.find({"$text": {"$search": query}}))
+    return render_template("products.html", products=productsList)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -50,12 +48,14 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "type": "user"
         }
         mongo.db.users.insert_one(register)
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
+        session["type"] = "user"
         flash("Registration Successful!")
         return redirect(url_for("profile", username=session["user"]))
 
@@ -74,6 +74,7 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
+                    session["type"] = existing_user["type"]
                     flash("Welcome, {}".format(
                         request.form.get("username")))
                     return redirect(url_for(
@@ -91,16 +92,17 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
     # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    products = list(mongo.db.products.find())
-    if session["user"]:    
-        return render_template("profile.html", username=username, products=products)
+    
+    if "user" in session:  
+        loggedUser = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        productsList = list(mongo.db.products.find())
+        return render_template("profile.html", username=loggedUser, products=productsList)
 
-    return render_template("login")
+    return render_template("login.html")
 
 
 @app.route("/logout")
@@ -129,28 +131,31 @@ def add_product():
         flash("Book Successfully Added")
         return redirect(url_for("get_products"))
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_product.html", categories=categories)
+    categoriesList = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_product.html", categories=categoriesList)
 
 
 @app.route("/edit_product/<product_id>", methods=["GET", "POST"])
 def edit_product(product_id):
     if request.method == "POST":
         is_new = "on" if request.form.get("is_new") else "off"
-        submit = {
+        product = {
             "category_name": request.form.get("category_name"),
             "product_name": request.form.get("product_name"),
+            "image_url": request.form.get("image_url"),
+            "sales_store_url": request.form.get("sales_store_url"),
             "product_description": request.form.get("product_description"),
             "is_new": is_new,
             "release_date": request.form.get("release_date"),
             "created_by": session["user"]
         }
-        mongo.db.products.update({"_id": ObjectId(product_id)}, submit)
+        mongo.db.products.update({"_id": ObjectId(product_id)}, product)
         flash("Book Successfully Updated")
+        return redirect(url_for("get_products"))
 
-    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_product.html", product=product, categories=categories)
+    productList = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+    categoriesList = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_product.html", product=productList, categories=categoriesList)
 
 
 @app.route("/delete_product/<product_id>")
@@ -162,42 +167,54 @@ def delete_product(product_id):
 
 @app.route("/get_categories")    
 def get_categories():
-    categories = list(mongo.db.categories.find().sort("category_name", 1))
-    return render_template("categories.html", categories=categories)
+    if session["type"] == "admin":
+        categoriesList = list(mongo.db.categories.find().sort("category_name", 1))
+        return render_template("categories.html", categories=categoriesList)
+
+    return redirect(url_for("home"))
 
 
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
-    if request.method == "POST":
-        category = {
-            "category_name": request.form.get("category_name")
-        }
-        mongo.db.categories.insert_one(category)
-        flash("New Category Added")
-        return redirect(url_for("get_categories"))
+    if session["type"] == "admin":
+        if request.method == "POST":
+            category = {
+                "category_name": request.form.get("category_name")
+            }
+            mongo.db.categories.insert_one(category)
+            flash("New Category Added")
+            return redirect(url_for("get_categories"))
 
-    return render_template("add_category.html")
+        return render_template("add_category.html")
+
+    return redirect(url_for("home"))
 
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
-    if request.method == "POST":
-        submit = {
-            "category_name": request.form.get("category_name")
-        }
-        mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
-        flash("Category Successfully Updated")
-        return redirect(url_for("get_categories"))
-        
-    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-    return render_template("edit_category.html", category=category)
+    if session["type"] == "admin":
+        if request.method == "POST":
+            submit = {
+                "category_name": request.form.get("category_name")
+            }
+            mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
+            flash("Category Successfully Updated")
+            return redirect(url_for("get_categories"))
+            
+        category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+        return render_template("edit_category.html", category=category)
+
+    return redirect(url_for("home"))
 
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
-    mongo.db.categories.remove({"_id": ObjectId(category_id)})
-    flash("Category Successfully Deleted")
-    return redirect(url_for("get_categories"))
+    if session["type"] == "admin":
+        mongo.db.categories.remove({"_id": ObjectId(category_id)})
+        flash("Category Successfully Deleted")
+        return redirect(url_for("get_categories"))
+    
+    return redirect(url_for("home"))
 
 
 if __name__ == "__main__":
