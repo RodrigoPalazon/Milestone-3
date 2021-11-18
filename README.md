@@ -76,8 +76,12 @@ All users of this site will be looking for similar things, outlined below:
 To create the wireframes, I used Figma. I started with the mobile wireframes and worked my way to a larger screen size. Below are the links to the completed wireframes;
 
 -   [Mobile](static/images/wf_mobile.png)
-<!-- -	[Desktop/Laptop](static/images/wf_desktop.png) -->
--   ![alt-text-1](static/images/wf_desktop1.png "title-1") ![alt-text-2](static/images/wf_desktop2.png "title-2")
+-	[Desktop/Laptop](static/images/wf_desktop.png)
+<!-- -   ![alt-text-1](static/images/wf_desktop1.png "title-1") ![alt-text-2](static/images/wf_desktop2.png "title-2") -->
+<p float="left">
+  <img src="static/images/wf_desktop1.png" width="100" />
+  <img src="static/images/wf_desktop2.png" width="100" /> 
+</p>
 ### Bugs
 #### Heroku deploy issue:
 https://stackoverflow.com/questions/68435865/could-not-find-a-version-that-satisfies-requirements-aptural-0-5-2-in-heroku
