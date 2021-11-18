@@ -3,7 +3,7 @@
 
 [Visit my live website here!](https://milestone3-rodrigopalazon.herokuapp.com/)
 
-[Site preview](static/images/responsivity.jpg)
+![Site preview](static/images/responsivity.png)
 
 # Table Of Contents
 
@@ -76,7 +76,8 @@ All users of this site will be looking for similar things, outlined below:
 To create the wireframes, I used Figma. I started with the mobile wireframes and worked my way to a larger screen size. Below are the links to the completed wireframes;
 
 -   [Mobile](static/images/wf_mobile.png)
--	[Desktop/Laptop](static/images/wf_desktop.png)
+<!-- -	[Desktop/Laptop](static/images/wf_desktop.png) -->
+-   ![alt-text-1](static/images/wf_desktop1.png "title-1") ![alt-text-2](static/images/wf_desktop2.png "title-2")
 ### Bugs
 #### Heroku deploy issue:
 https://stackoverflow.com/questions/68435865/could-not-find-a-version-that-satisfies-requirements-aptural-0-5-2-in-heroku
