@@ -76,12 +76,145 @@ All users of this site will be looking for similar things, outlined below:
 To create the wireframes, I used Figma. I started with the mobile wireframes and worked my way to a larger screen size. Below are the links to the completed wireframes;
 
 -   [Mobile](static/images/wf_mobile.png)
--	[Desktop/Laptop]()
+-	[Desktop/Laptop](
     - [img1](static/images/wf_desktop1.png)
     - [img2](static/images/wf_desktop2.png)
     - [img3](static/images/wf_desktop3.png)
     - [img4](static/images/wf_desktop4.png)
-    - [img5](static/images/wf_desktop5.png)
+    - [img5](static/images/wf_desktop5.png))
+
+I kept most of the original design, but added a few extra features to improve on the overall site. I also changed some of the wording on the site to improve user experience and readability. 
+
+I also used Font Awesome to provide fun icons across my site, and for a more visually appealing look.
+## Typography
+
+For this site I have the font that is auto assigned to Materialize. I pic
+
+## Colours
+
+For the colour scheme for my site, I mainly used the Materialize colour chart. I picked the orange as the main colour and I considered the UI concepts to choose the contrasts colors.
+
+
+## Database
+
+I used MongoDB as the database for this project. This projects database uses four collections;
+-	Users
+-	Categories
+-	Products
+
+### Users
+
+Storing users usernames and passwords allows users to register and log in/log out securely. 
+
+![Users DB image](static/images/mongo_user.png)
+
+### Categories
+
+I chose to store genres, keyword ‘categories’ in the database so that users could chose the book genre from a dropdown list.
+
+![Categories DB image](static/images/mongo_categories.png)
+
+### Products
+
+When a user has added a book review to the site, the information of the book and the review will be stored in the database. This is so that the information can be stored securely, and can be displayed on the site easily.
+
+![Books DB image](static/images/mongo_products.png)
+
+# Features
+
+## Current Features
+
+### Site Wide Features
+
+-	Responsiveness – The site is fully responsive to all screen sizes. 
+-	Navbar and footer – The navbar and footer will be the same throughout the entire site, with the same links and information across all pages. The will both sit at the top and bottom of each page respectively, and will not scroll up or down with the user. This gives the user more screen space to view the site.
+-	Flash messages – Flash messages are there to provide the user with feedback once registered, logged in, logged out etc. 
+-	Headers – Each page has a header, and these headers all follow the same suit for formality and ease of viewing. 
+
+### Home Page
+
+-	 Slideshow - A página inicial utiliza um slideshow de imagens built in jQuery . I used three images of books that the user can control their slides by pressing the arrows left and right.
+- Body Text - When a user first visits the site, or is logged out, they are shown a different heading and body text than if they are logged in. This is so the text is relevant to their log in status. Someone who is already logged in does not need the links for register or log in, and someone who is not a registered user cannot add a review.
+
+### Book Reviews
+
+-	Search bar – The search bar is placed at the top of the 'All Books' page so that users can search for a book review easily without having to look through all the currently submitted reviews.
+
+
+### My Profile
+
+-	My Reviews – The user will have their own book reviews here, and they will be in the same display format as on the ‘All Books'page. This is so each user has quick and easy access to all reviews they have posted, and they can be easily edited from here. If the user has not yet left any reviews, text will appear linking them to the add review page.
+-   Deleting and Editing - The user has manners to delete and edit the whole information from his book posted previously. The button
+'EDIT' brings the user to the form with the book's posted information and the form's field the replace their information and update it to the main and  user's profile list.
+
+### Add/Edit Book Review, Register/Log In Pages
+
+-	Forms – The forms on these pages are clear and concise, and responsive across all screen sizes. Each form upon submission, has a redirect function that will take the user to a relevant page. 
+
+### Manage/Add/Edit Categories Pages
+
+-	These pages are only accessible by the Admin of the site. 
+-	The categories are displayed on cards, and are sorted alphabetically, starting with A. 
+-	This helps the admin of the site amend categories without having to directly access the database. It’s a quick, easy and simple way to amend the site. 
+
+## Future Features
+
+These are some features I would like to implement in the future;
+
+-	Bookmarked Books – When a user deletes a review, if someone has bookmarked that particular book, it stays on the list and doesn’t get removed. I would also like for the review to be updated if it gets edited.
+-	Comments - I would like to add a feature whereby users can comment on an existing review.
+-   Pagination - I would like to limit the number of book reviews per page, and it would be good to do this using Pagination. 
+-	Separate Pages – Books to be displayed on their own page.
+
+[Back to contents](#table-of-contents)
+
+# Technologies Used
+
+## Languages
+
+-	HTML5
+-	CSS3
+-	Javascript
+-	Python3
+
+## Database
+
+-	Mongo DB
+
+## Frameworks Libraries and Programmes
+
+Flask
+- A python web framework.
+
+Jinja
+- Template used by Flask and Python.
+
+PyMongo
+- Python tool for use with Mongo DB.
+
+Werkzeug
+- WSGI web application library used by Flask and Python.
+
+Figma - https://figma.com/ 
+- I used Figma to create the wireframes for my project.
+
+Font Awesome – https://fontawesome.com/ 
+- Icons from Font Awesome were used throughout the site.  
+
+Github – https://github.com/ 
+- Github was used to store the code for my project.
+
+Heroku - https://id.heroku.com/login 
+- Heroku was used to deploy the project. 
+
+jQuery – https://jquery.com/
+- jQuery was used for the main functions due to ease of use.
+
+MaterializeCSS - https://materializecss.com/ 
+- For this project, I used MaterializeCSS to help with the styling, layout and responsiveness of the finished site.
+
+
+[Back to contents](#table-of-contents)
 
 ### Bugs
 #### Heroku deploy issue:
