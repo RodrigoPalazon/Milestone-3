@@ -77,11 +77,11 @@ To create the wireframes, I used Figma. I started with the mobile wireframes and
 
 -   [Mobile](static/images/wf_mobile.png)
 -	[Desktop/Laptop]()
-    - [img1](static/images/wf_mobile1.png)
-    - [img2](static/images/wf_mobile2.png)
-    - [img3](static/images/wf_mobile3.png)
-    - [img4](static/images/wf_mobile4.png)
-    - [img5](static/images/wf_mobile5.png)
+    - [img1](static/images/wf_desktop1.png)
+    - [img2](static/images/wf_desktop2.png)
+    - [img3](static/images/wf_desktop3.png)
+    - [img4](static/images/wf_desktop4.png)
+    - [img5](static/images/wf_desktop5.png)
 
 ### Bugs
 #### Heroku deploy issue:
