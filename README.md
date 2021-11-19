@@ -288,7 +288,54 @@ This project is deployed using Heroku. The following steps were taken;
 
 [Back to contents](#table-of-contents)
 
-### Bugs
-#### Heroku deploy issue:
-https://stackoverflow.com/questions/68435865/could-not-find-a-version-that-satisfies-requirements-aptural-0-5-2-in-heroku
 
+# Credits
+
+## Code
+
+- I followed the Code Institute walkthrough project Task Manager, and used the base code as a template for my project. I adjusted the code and added my own to create my site. 
+    - [Code Institute Reference](https://github.com/Code-Institute-Solutions/TaskManagerAuth)
+    Author: [Tim Nelson](https://github.com/TravelTimN)
+
+- The following repositories were used as references to this project as well:
+    - [TanjaG.Portfolio](https://tanjag-portfolio.herokuapp.com)
+    Author: [Tanja Godinic](https://github.com/TanYa-Go)
+
+
+    - [GrowApps TM](http://ms3-project-ci.herokuapp.com/home)
+    Author: [Goran Kuzma](https://github.com/kuzGo)
+
+
+    - [Read It](http://ms3-project-ci.herokuapp.com/home)
+    Author: [Taylor Brookes](https://github.com/taybro23)
+
+- For technical support I used the Slack software, connecting with many [Code Institute's](https://codeinstitute.net/) students, and also the following platforms and Video Tutorials:
+
+    - [W3C School](https://www.w3schools.com/), official documentation.
+    
+    - [Flask Tutorial](https://www.youtube.com/watch?v=mqhxxeeTbu0&list=PLzMcBGfZo4-n4vJJybUVV3Un_NFS5EOgX)
+        Author: [Tech with Tim](https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg)
+    
+    - [Django for Beginners Tutorial](https://www.youtube.com/watch?v=sm1mokevMWk) 
+        Author: [Tech with Tim](https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg)
+
+    - [Learn Python Tutorial](https://www.youtube.com/watch?v=rfscVS0vtbw&t=1s)
+        Author: [freeCodeCamp](https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ)
+
+
+For the styling of the site I used Materialize classes, then added my own CSS code to style them further and make my site unique. 
+I also used some snippet of code for my jQuery slideshow from the official documentation.
+### Bugs
+#### Heroku, Git, and Github issues:
+
+- For incompatibilities of SSH key on GitHub, and deployment issues, I received support from the Software Engineer and my personal friend [Ricado Schiavetti](https://github.com/rrschiavetti).
+
+## Acknowledgements
+
+-	I would like to thank my mentor, Jack Wachira, for his guidance, feedback, and great advices. 
+-	The slack community for helping me with my coding queries.
+-	My personal friends that are always supporting me on this journey. 
+-	The Colleagues that helped with the 'Pure Review' and 'Refactoring'. 
+
+
+[Back to contents](#table-of-contents)
