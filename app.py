@@ -19,18 +19,21 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# render home template
 @app.route("/")
 @app.route("/home")
 def home():
     return render_template("home.html")
 
 
+# display books from db
 @app.route("/get_products")
 def get_products():
     productsList = list(mongo.db.products.find())
     return render_template("products.html", products=productsList)
   
 
+# search for a book in db using text query
 @app.route("/search", methods=["POST"])
 def search():
     query = request.form.get("query")
@@ -38,6 +41,7 @@ def search():
     return render_template("products.html", products=productsList)
 
 
+# user registration
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -64,7 +68,7 @@ def register():
 
     return render_template("register.html")
 
-
+# user log in
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -95,6 +99,7 @@ def login():
     return render_template("login.html")
 
 
+# users profile page
 @app.route("/profile", methods=["GET", "POST"])
 def profile():
     # grab the session user's username from db
@@ -107,6 +112,7 @@ def profile():
     return render_template("login.html")
 
 
+# user log out
 @app.route("/logout")
 def logout():
     # remove user from session cookie
@@ -115,10 +121,12 @@ def logout():
     return redirect(url_for("login"))
 
 
+#add book to db
 @app.route("/add_product", methods=["GET", "POST"])
 def add_product():
     if request.method == "POST":
         is_new = "on" if request.form.get("is_new") else "off"
+         # retrieve book info from form
         product = {
             "category_name": request.form.get("category_name"),
             "product_name": request.form.get("product_name"),
@@ -129,6 +137,7 @@ def add_product():
             "release_date": request.form.get("release_date"),
             "created_by": session["user"]
         }
+        # insert new book into db
         mongo.db.products.insert_one(product)
         flash("Book Successfully Added")
         return redirect(url_for("get_products"))
@@ -137,10 +146,12 @@ def add_product():
     return render_template("add_product.html", categories=categoriesList)
 
 
+# edit book review
 @app.route("/edit_product/<product_id>", methods=["GET", "POST"])
 def edit_product(product_id):
     if request.method == "POST":
         is_new = "on" if request.form.get("is_new") else "off"
+        # retrieve book info from db
         product = {
             "category_name": request.form.get("category_name"),
             "product_name": request.form.get("product_name"),
@@ -151,6 +162,7 @@ def edit_product(product_id):
             "release_date": request.form.get("release_date"),
             "created_by": session["user"]
         }
+        # update book info
         mongo.db.products.update({"_id": ObjectId(product_id)}, product)
         flash("Book Successfully Updated")
         return redirect(url_for("get_products"))
@@ -160,6 +172,7 @@ def edit_product(product_id):
     return render_template("edit_product.html", product=productList, categories=categoriesList)
 
 
+# delete book review
 @app.route("/delete_product/<product_id>")
 def delete_product(product_id):
     mongo.db.products.remove({"_id": ObjectId(product_id)})
@@ -167,6 +180,7 @@ def delete_product(product_id):
     return redirect(url_for("get_products"))
 
 
+# admin to manage categories in db
 @app.route("/get_categories")    
 def get_categories():
     if session["type"] == "admin":
@@ -176,6 +190,7 @@ def get_categories():
     return redirect(url_for("home"))
 
 
+# admin to add category to categories' list db
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if session["type"] == "admin":
@@ -192,6 +207,7 @@ def add_category():
     return redirect(url_for("home"))
 
 
+# edit currently existing category in db
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
     if session["type"] == "admin":
@@ -209,6 +225,7 @@ def edit_category(category_id):
     return redirect(url_for("home"))
 
 
+# delete genre from db
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     if session["type"] == "admin":
