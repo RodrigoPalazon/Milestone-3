@@ -217,7 +217,28 @@ These are some features I would like to implement in the future;
 
 # Testing
 
-Find the full Testing Document [here!](TESTING.md)
+## Codes Validators:
+    All the Codes passed by those Code Validators:
+### HTML5
+- [HTML5 Code Validator](https://validator.w3.org/)
+### CSS3
+- [CSS3 Code Validator](https://jigsaw.w3.org/css-validator/)
+### JS
+- [JSS Code Validator](https://jshint.com/)
+### PYTHON
+- [PYTHON Code Validator](http://pep8online.com/)
+
+
+## Security Testing
+
+- All pages were tested to make sure that no unauthorised users can access pages they should not have access to.
+- If a user is logged out, they have no access to any pages they should not have access to. 
+- All admin only pages can only be accessed by the admin.
+- Redirects are all working as expected, with correct flash messages present.
+
+## Responsiveness
+
+-	The responsiveness of this site was tested using a Windows Laptop, an Apple MacBook Pro, a Samsung Galaxy S20 mobile phone and an iPhone 12. 
 
 [Back to contents](#table-of-contents)
 
@@ -332,14 +353,6 @@ For the README.md file I used as model the [Code Institute](https://codeinstitut
     Author:[Matt Rudge](https://github.com/lechien73)
 
     - [GitHub MarkDown Documentation](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-
-
-## Codes Validators:
-    All the Codes passed by those Code Validators:
-- [HTML5 Code Validator](https://validator.w3.org/)
-- [CSS3 Code Validator](https://jigsaw.w3.org/css-validator/)
-- [JSS Code Validator](https://jshint.com/)
-- [PYTHON Code Validator](http://pep8online.com/)
 
 
 ### Bugs
