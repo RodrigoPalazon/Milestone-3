@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix orange-text text-darken-4"></i>
-                    <input id="product_name" name="product_name" minlength="5" maxlength="50" 
+                    <input id="product_name" name="product_name" minlength="5" maxlength="100" 
                           value="{{ product.product_name}}" type="text" class="validate" required>
                     <label for="product_name">Book Name</label>
                 </div>
@@ -51,8 +51,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
-                    <textarea id="product_description" name="product_description" minlength="5" 
-                       maxlength="200" class="materialize-textarea validate" required>
+                    <textarea id="product_description" name="product_description" rows="4" cols="80" minlength="5" 
+                       maxlength="2000" class="materialize-textarea validate" required>
                         {{- product.product_description -}}
                     </textarea>
                     <label for="product_description">Book Description</label>
