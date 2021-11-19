@@ -43,7 +43,7 @@
                     </li>
                     {% if session.user %}
                         <li>
-                            <a href="{{ url_for('profile') }}">My Posts</a>
+                            <a href="{{ url_for('profile') }}">My Books</a>
                         </li>
                         <li>
                             <a href="{{ url_for('get_products') }}">All Books</a>
@@ -80,7 +80,7 @@
             </li>
             {% if session.user %}
                 <li>
-                    <a href="{{ url_for('profile', username=session['user']) }}">My Posts</a>
+                    <a href="{{ url_for('profile', username=session['user']) }}">My Books</a>
                 </li>
                 <li>
                     <a href="{{ url_for('get_products') }}">All Books</a>

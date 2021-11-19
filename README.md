@@ -8,7 +8,7 @@
 # Table Of Contents
 
 1. [Overview](#overview)
-<!-- 2. [UX](#ux)
+2. [UX](#ux)
     - [Target Audience](#target-audience)
     - [User Stories](#user-stories)
 3. [Design](#design)
@@ -25,13 +25,13 @@
     - [Frameworks Libraries and Programmes](#frameworks-libraries-and-programmes)
 6. [Testing](#testing)
 7. [Deployment](#deployment)
-8. [Credits](#credits) -->
+8. [Credits](#credits)
 
 # Overview
 
-Love Books is a site that is designed for people who are looking to keep a record of books that they have read, and share their reviews with others. 
+Love Books is a site that is designed for people who are looking to keep a record of books that they have read, and share their reviews with others people from our community. 
 Users are able to view books and reviews without needing to create an account. This allows new users to preview the site before registering so they have an idea of what the site is like. 
-Some of our main categories are Philosophy, Technology, Fiction, Science, Programming, and much more, for people that are always interested in learning something new. Share with other users your favorites books, and check some recommendations as well.
+Some of our main categories are Philosophy, Technology, Fiction, Science, Programming, and much more, for people that are always interested in learning something new. Share with other users your favorites books, and checking some recommendations as well.
 
 [Back to contents](#table-of-contents)
 
@@ -39,8 +39,9 @@ Some of our main categories are Philosophy, Technology, Fiction, Science, Progra
 
 ## Target Audience
 
-The target audience for my site is people who are avid readers. They’ll be able to keep a list of the books they have rated and reviewed, as well as view other people’s reviews.
+The target audience for my site is people who are avid readers. They’ll be able to keep a list of the books they have reviewed (as a friend's recommendation), as well as view other people’s reviews.
 It's also allows users Create, Read, Update and Delete, their new posts whenever they want. 
+All mentioned book go to a main list that all users are able to access and share your favorite ones.
 
 ## User Stories
 
@@ -55,8 +56,7 @@ All users of this site will be looking for similar things, outlined below:
 -	Search the site to find other reviews.
 -	For the review information to be clear and concise.
 -   Keep a record of books they are interested in.
--	Find links where they can purchase the books.
--	To be provided with contact information and social links.
+-	Find links where they can purchase the books(if provided by the user).
 -	Once finished, to securely log out of the site.
 
 ### Site Owner/Admin
@@ -77,27 +77,26 @@ To create the wireframes, I used Figma. I started with the mobile wireframes and
 
 -   [Mobile](static/images/wf_mobile.png)
 -	[Desktop/Laptop](
-    - [img1](static/images/wf_desktop1.png)
-    - [img2](static/images/wf_desktop2.png)
-    - [img3](static/images/wf_desktop3.png)
-    - [img4](static/images/wf_desktop4.png)
-    - [img5](static/images/wf_desktop5.png))
+    - [Home page](static/images/wf_desktop1.png)
+    - [My Book page](static/images/wf_desktop2.png)
+    - [All Books page](static/images/wf_desktop3.png)
+    - [Add Book page](static/images/wf_desktop4.png)
+    - [LogIn and Register page](static/images/wf_desktop5.png))
 
 I kept most of the original design, but added a few extra features to improve on the overall site. I also changed some of the wording on the site to improve user experience and readability. 
 
 I also used Font Awesome to provide fun icons across my site, and for a more visually appealing look.
 ## Typography
 
-For this site I have the font that is auto assigned to Materialize. I pic
+For this site I have the font that is auto assigned to Materialize.
 
 ## Colours
 
 For the colour scheme for my site, I mainly used the Materialize colour chart. I picked the orange as the main colour and I considered the UI concepts to choose the contrasts colors.
 
-
 ## Database
 
-I used MongoDB as the database for this project. This projects database uses four collections;
+I used MongoDB as the database for this project. This projects database uses three collections;
 -	Users
 -	Categories
 -	Products
@@ -110,13 +109,13 @@ Storing users usernames and passwords allows users to register and log in/log ou
 
 ### Categories
 
-I chose to store genres, keyword ‘categories’ in the database so that users could chose the book genre from a dropdown list.
+I chose to store category, keyword ‘categories’ in the database so that users could chose the book category from a dropdown list.
 
 ![Categories DB image](static/images/mongo_categories.png)
 
 ### Products
 
-When a user has added a book review to the site, the information of the book and the review will be stored in the database. This is so that the information can be stored securely, and can be displayed on the site easily.
+When a user has added a book review to the site, the information of the book and the review will be stored in the database. This is so that the information can be stored securely, and can be displayed on the site easily.I chose by the keyword 'Products' as a way to demonstrate that is possible to use this model to any type of product  that the costumer desires, and not just books.
 
 ![Books DB image](static/images/mongo_products.png)
 
@@ -133,19 +132,17 @@ When a user has added a book review to the site, the information of the book and
 
 ### Home Page
 
--	 Slideshow - A página inicial utiliza um slideshow de imagens built in jQuery . I used three images of books that the user can control their slides by pressing the arrows left and right.
+-	 Slideshow - The Home page uses a slideshow of images built in jQuery. I used three images of books that the user can control their slides by pressing the arrows left and right.
 - Body Text - When a user first visits the site, or is logged out, they are shown a different heading and body text than if they are logged in. This is so the text is relevant to their log in status. Someone who is already logged in does not need the links for register or log in, and someone who is not a registered user cannot add a review.
 
 ### Book Reviews
 
 -	Search bar – The search bar is placed at the top of the 'All Books' page so that users can search for a book review easily without having to look through all the currently submitted reviews.
 
-
 ### My Profile
 
--	My Reviews – The user will have their own book reviews here, and they will be in the same display format as on the ‘All Books'page. This is so each user has quick and easy access to all reviews they have posted, and they can be easily edited from here. If the user has not yet left any reviews, text will appear linking them to the add review page.
--   Deleting and Editing - The user has manners to delete and edit the whole information from his book posted previously. The button
-'EDIT' brings the user to the form with the book's posted information and the form's field the replace their information and update it to the main and  user's profile list.
+-	My Books – The user will have their own book reviews here, and they will be in the same display format as on the ‘All Books'page. This is so each user has quick and easy access to all reviews they have posted, and they can be easily edited from here. If the user has not yet left any reviews, text will appear linking them to the add review page.
+-   Deleting and Editing - The user has manners to delete and edit the whole information from his book posted previously. The button 'EDIT' brings the user to the form with the book's posted information and the form's field the replace their information and update it to the main and  user's profile list.
 
 ### Add/Edit Book Review, Register/Log In Pages
 
@@ -161,7 +158,8 @@ When a user has added a book review to the site, the information of the book and
 
 These are some features I would like to implement in the future;
 
--	Bookmarked Books – When a user deletes a review, if someone has bookmarked that particular book, it stays on the list and doesn’t get removed. I would also like for the review to be updated if it gets edited.
+-	Bookmarked Books – I would like the add a functionality that allows the user bookmarked other users books, adding the specific marked book to the user profile's page. I would also like for the review to be updated if it gets edited.
+-   Admin Control - It would be extremely important if the Administrator could manage the other user's interaction (Edit and Delete mainly), to prevent the platform from malicious users' behaviors.
 -	Comments - I would like to add a feature whereby users can comment on an existing review.
 -   Pagination - I would like to limit the number of book reviews per page, and it would be good to do this using Pagination. 
 -	Separate Pages – Books to be displayed on their own page.
@@ -172,55 +170,56 @@ These are some features I would like to implement in the future;
 
 ## Languages
 
--	HTML5
--	CSS3
--	Javascript
--	Python3
+-	[HTML5](https://www.w3schools.com/html/)
+-	[CSS3](https://www.w3schools.com/css/default.asp)
+-	[Javascript](https://www.w3schools.com/js/default.asp)
+-	[Python3](https://www.w3schools.com/python/default.asp)
+-   [GIT](https://git-scm.com/docs/git)
 
 ## Database
 
--	Mongo DB
+-	[Mongo DB](https://docs.mongodb.com/)
 
 ## Frameworks Libraries and Programmes
 
-Flask
+[Flask](https://flask.palletsprojects.com/en/2.0.x/)
 - A python web framework.
 
-Jinja
+[Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
 - Template used by Flask and Python.
 
-PyMongo
+[PyMongo](https://pymongo.readthedocs.io/en/stable/)
 - Python tool for use with Mongo DB.
 
-Werkzeug
+[Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)
 - WSGI web application library used by Flask and Python.
 
-Figma - https://figma.com/ 
+[Figma](https://figma.com/)
 - I used Figma to create the wireframes for my project.
 
-Font Awesome – https://fontawesome.com/ 
+[Font Awesome](https://fontawesome.com/ )
 - Icons from Font Awesome were used throughout the site.  
 
-Github – https://github.com/ 
+[Github](https://github.com/)
 - Github was used to store the code for my project.
 
-Heroku - https://id.heroku.com/login 
+[Heroku](https://id.heroku.com/login) 
 - Heroku was used to deploy the project. 
 
-jQuery – https://jquery.com/
+[jQuery](https://api.jquery.com/)
 - jQuery was used for the main functions due to ease of use.
 
-MaterializeCSS - https://materializecss.com/ 
+[MaterializeCSS](https://materializecss.com/)
 - For this project, I used MaterializeCSS to help with the styling, layout and responsiveness of the finished site.
 
 
 [Back to contents](#table-of-contents)
 
-<!-- # Testing
+# Testing
 
 Find the full Testing Document [here!](TESTING.md)
 
-[Back to contents](#table-of-contents) -->
+[Back to contents](#table-of-contents)
 
 # Deployment
 
@@ -325,6 +324,24 @@ This project is deployed using Heroku. The following steps were taken;
 
 For the styling of the site I used Materialize classes, then added my own CSS code to style them further and make my site unique. 
 I also used some snippet of code for my jQuery slideshow from the official documentation.
+
+## README.md
+For the README.md file I used as model the [Code Institute](https://codeinstitute.net/) repository, such as the other students project's repositories as well (mentioned above), including my owns READMEs files from previous projects:
+
+    - [Code Institute Repository](https://github.com/Code-Institute-Solutions/SampleREADME)
+    Author:[Matt Rudge](https://github.com/lechien73)
+
+    - [GitHub MarkDown Documentation](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+
+
+## Codes Validators:
+    All the Codes passed by those Code Validators:
+- [HTML5 Code Validator](https://validator.w3.org/)
+- [CSS3 Code Validator](https://jigsaw.w3.org/css-validator/)
+- [JSS Code Validator](https://jshint.com/)
+- [PYTHON Code Validator](http://pep8online.com/)
+
+
 ### Bugs
 #### Heroku, Git, and Github issues:
 
