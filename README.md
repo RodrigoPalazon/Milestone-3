@@ -1,7 +1,7 @@
 #  Milestone Project 3
 ## Love Books
 
-[Visit my live website here!](http://milestone3-rodrigopalazon.herokuapp.com/home)
+[Visit my live website here!](https://milestone3-rodrigopalazon.herokuapp.com/)
 
 ![Site preview](static/images/responsivity.png)
 
