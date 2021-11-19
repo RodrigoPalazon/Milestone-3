@@ -314,32 +314,32 @@ This project is deployed using Heroku. The following steps were taken;
 ## Code
 
 - I followed the Code Institute walkthrough project Task Manager, and used the base code as a template for my project. I adjusted the code and added my own to create my site. 
-    - [Code Institute Reference](https://github.com/Code-Institute-Solutions/TaskManagerAuth)//
+    - [Code Institute Reference](https://github.com/Code-Institute-Solutions/TaskManagerAuth)<br/>
     Author: [Tim Nelson](https://github.com/TravelTimN)
 
 - The following repositories were used as references to this project as well:
-    - [TanjaG.Portfolio](https://tanjag-portfolio.herokuapp.com)//
+    - [TanjaG.Portfolio](https://tanjag-portfolio.herokuapp.com)<br/>
     Author: [Tanja Godinic](https://github.com/TanYa-Go)
 
 
-    - [GrowApps TM](http://ms3-project-ci.herokuapp.com/home)//
+    - [GrowApps TM](http://ms3-project-ci.herokuapp.com/home)<br/>
     Author: [Goran Kuzma](https://github.com/kuzGo)
 
 
-    - [Read It](http://ms3-project-ci.herokuapp.com/home)//
+    - [Read It](http://ms3-project-ci.herokuapp.com/home)<br/>
     Author: [Taylor Brookes](https://github.com/taybro23)
 
 - For technical support I used the Slack software, connecting with many [Code Institute's](https://codeinstitute.net/) students, and also the following platforms and Video Tutorials:
 
     - [W3C School](https://www.w3schools.com/), official documentation.
     
-    - [Flask Tutorial](https://www.youtube.com/watch?v=mqhxxeeTbu0&list=PLzMcBGfZo4-n4vJJybUVV3Un_NFS5EOgX)//
+    - [Flask Tutorial](https://www.youtube.com/watch?v=mqhxxeeTbu0&list=PLzMcBGfZo4-n4vJJybUVV3Un_NFS5EOgX)<br/>
         Author: [Tech with Tim](https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg)
     
-    - [Django for Beginners Tutorial](https://www.youtube.com/watch?v=sm1mokevMWk) //
+    - [Django for Beginners Tutorial](https://www.youtube.com/watch?v=sm1mokevMWk) <br/>
         Author: [Tech with Tim](https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg)
 
-    - [Learn Python Tutorial](https://www.youtube.com/watch?v=rfscVS0vtbw&t=1s)//
+    - [Learn Python Tutorial](https://www.youtube.com/watch?v=rfscVS0vtbw&t=1s)<br/>
         Author: [freeCodeCamp](https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ)
 
 
@@ -349,7 +349,7 @@ I also used some snippet of code for my jQuery slideshow from the official docum
 ## README.md
 For the README.md file I used as model the [Code Institute](https://codeinstitute.net/) repository, such as the other students project's repositories as well (mentioned above), including my owns READMEs files from previous projects:
 
-- [Code Institute Repository](https://github.com/Code-Institute-Solutions/SampleREADME)//
+- [Code Institute Repository](https://github.com/Code-Institute-Solutions/SampleREADME)<br/>
     Author:[Matt Rudge](https://github.com/lechien73)
 
 - [GitHub MarkDown Documentation](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
