@@ -355,6 +355,16 @@ For the README.md file I used as model the [Code Institute](https://codeinstitut
 - [GitHub MarkDown Documentation](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
 
+
+## Images
+
+Beneath you can find the links for the images used in the home.html page:
+- [image 1](https://ftf.enu.kz/storage/ftf/F0P5V1CHUPCCFXrvGf0zxiyisiDiWCnaegwZ1ZoH.jpeg)
+- [image 2](https://uploads.thealternativepress.com/uploads/photos/best_3b4fb0679d539d0c0a2f_mini_magick20210121-41047-rltpaa.jpg)
+- [image 3](shorturl.at/tJY05)
+
+The images used by the users were not inspected by the Admin.
+
 ### Bugs
 #### Heroku, Git, and Github issues:
 
